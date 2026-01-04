@@ -5,16 +5,16 @@ from präsentation.View import View
 
 class Controller:
     def __init__(self):
-        self.speicher = Speicher()
-        self.rechner = Rechner()
-        self.view = View()
+        self.__speicher = Speicher()
+        self.__rechner = Rechner()
+        self.__view = View()
 
     def berechnen(self):
-        a = self.view.hohleZahl("1. Zahl: ")
-        b = self.view.hohleZahl("2. Zahl: ")
-        operator = self.view.hohleOperator()
+        a = self.__view.hohleZahl("1. Zahl: ")
+        b = self.__view.hohleZahl("2. Zahl: ")
+        operator = self.__view.hohleOperator()
 
-        ergebnis = self.rechner.rechne(a, b, operator)
-        self.speicher.setLetztesEreignis(ergebnis)
+        ergebnis = self.__rechner.rechne(a, b, operator)
+        self.__speicher.setLetztesEreignis(ergebnis)
 
-        print("Ergebnis: ", self.speicher.getLetztesEreignis())
+        print("Ergebnis: ", self.__speicher.getLetztesEreignis())

@@ -16,7 +16,7 @@ class Rechner:
             case "/":
                 ergebnis = self.__divission(a, b)
             case _:
-                ergebnis = False
+                ergebnis = ValueError
 
         return ergebnis
 
@@ -31,4 +31,7 @@ class Rechner:
         return a * b
     
     def __divission(self, a: float, b: float) -> float:
-        return a / b
+        if b != 0:
+            return a / b
+        else:
+            return ZeroDivisionError
